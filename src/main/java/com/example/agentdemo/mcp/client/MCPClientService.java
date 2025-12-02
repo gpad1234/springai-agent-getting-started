@@ -39,9 +39,11 @@ public class MCPClientService {
         ProcessBuilder processBuilder = new ProcessBuilder();
         List<String> commandList = new ArrayList<>();
         commandList.add(command);
-        if (args != null) {
+        if (args != null && !args.isEmpty()) {
             commandList.addAll(args);
         }
+        
+        log.info("Full command list: {}", commandList);
         processBuilder.command(commandList);
         
         Process process = processBuilder.start();
